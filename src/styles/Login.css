@@ -1,0 +1,70 @@
+.login-container {
+    width: 360px;
+    margin: 100px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+}
+
+.titleWrap {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.inputTitle {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.inputWrap {
+    margin-bottom: 16px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.errorMessageWrap {
+    color: red;
+    font-size: 13px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.buttonWrap {
+    margin-top: 20px;
+}
+
+.bottomButton {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.bottomButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.registerWrap {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.registerTitle a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
