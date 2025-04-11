@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import './styles/Register.css';
+import '../styles/Register.css';
 
 
 export default function Register() {

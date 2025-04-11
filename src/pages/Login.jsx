@@ -1,23 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './styles/Login.css';
+import '../styles/Login.css';
 
 
 export default function Login() {
   const [username, setUsername] = useState('');
   const [pw, setPw] = useState('');
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessgae] = useState('');
 
   const [notAllow, setNotAllow] = useState(true);
 
   const navigate = useNavigate();
 
   const handleUsername = (e) => {
+    setShowError(false);
     setUsername(e.target.value);
-  }
+  };
 
   const handlePw = (e) => {
+    setShowError(false);
     setPw(e.target.value);
-  }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key == 'Enter' && !notAllow) {
+      onClickConfirmButton();
+    }
+  };
 
   const onClickConfirmButton = () => {
     const params = {
@@ -38,7 +48,7 @@ export default function Login() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error);
+        throw data.error;
       }
       return data;
     })
@@ -56,8 +66,8 @@ export default function Login() {
       navigate('/home');
     })
     .catch(error => {
-      console.error(error);
-      alert('로그인 중 오류 발생');
+      setShowError(true);
+      setErrorMessgae(error);
     });
   }
 
@@ -93,8 +103,17 @@ export default function Login() {
             className='input'
             placeholder='비밀번호를 입력하세요'
             value={pw}
-            onChange={handlePw}/>
+            onChange={handlePw}
+            onKeyDown={handleKeyDown}/>
         </div>
+
+        {/* 로그인 에러처리 */}
+        { showError && (
+          <div className='errorMessageWrap'>
+            <div>{errorMessage}</div>
+            </div>
+          )
+        }
 
         <br />
         <div className='buttonWrap'>
